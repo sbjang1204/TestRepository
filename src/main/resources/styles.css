@@ -1,0 +1,355 @@
+:root {
+    --background: #fff5f7;
+    --background-soft: #fff0f5;
+    --primary: #ff8fab;
+    --accent: #ffb3c6;
+    --accent-strong: #ff6b9a;
+    --text: #444444;
+    --text-soft: #6d5b64;
+    --white: #ffffff;
+    --line: rgba(255, 107, 154, 0.16);
+    --shadow: 0 24px 60px rgba(255, 143, 171, 0.18);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Pretendard, "Malgun Gothic", sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at top left, rgba(255, 179, 198, 0.45), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(255, 143, 171, 0.25), transparent 24%),
+        linear-gradient(180deg, #fff8fb 0%, var(--background) 48%, var(--background-soft) 100%);
+}
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    filter: blur(14px);
+    opacity: 0.55;
+}
+
+body::before {
+    top: -80px;
+    right: -40px;
+    background: rgba(255, 143, 171, 0.28);
+}
+
+body::after {
+    bottom: -100px;
+    left: -20px;
+    background: rgba(255, 179, 198, 0.32);
+}
+
+.shell {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 36px 0 72px;
+}
+
+.hero,
+.reasons,
+.gallery,
+.analysis-card {
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 28px;
+    align-items: center;
+    padding: 34px;
+    border-radius: 36px;
+}
+
+.eyebrow {
+    margin: 0 0 12px;
+    color: var(--accent-strong);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+strong {
+    font-weight: 800;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(2.6rem, 6.5vw, 5.3rem);
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+}
+
+.lead,
+.section-heading p,
+.reason-card p,
+.gallery-card figcaption,
+.analysis-card p {
+    color: var(--text-soft);
+    line-height: 1.75;
+}
+
+.lead {
+    max-width: 610px;
+    margin: 20px 0 0;
+    font-size: 1.08rem;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.primary {
+    border: 0;
+    min-height: 54px;
+    padding: 0 22px;
+    border-radius: 999px;
+    font: inherit;
+    font-weight: 800;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-strong) 100%);
+    box-shadow: 0 16px 32px rgba(255, 107, 154, 0.28);
+    cursor: pointer;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.primary:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 22px 36px rgba(255, 107, 154, 0.34);
+}
+
+.result {
+    margin: 0;
+    padding: 12px 16px;
+    border-radius: 18px;
+    background: rgba(255, 240, 245, 0.94);
+    border: 1px solid rgba(255, 143, 171, 0.18);
+    font-weight: 700;
+}
+
+.hero-visual {
+    position: relative;
+    padding: 24px 10px 10px;
+}
+
+.frame {
+    overflow: hidden;
+    border: 10px solid rgba(255, 255, 255, 0.85);
+    border-radius: 34px;
+    background: linear-gradient(180deg, rgba(255, 179, 198, 0.2), rgba(255, 255, 255, 0.95));
+    box-shadow: var(--shadow);
+    transition: transform 220ms ease;
+}
+
+.frame img,
+.gallery-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.large {
+    aspect-ratio: 4 / 4.2;
+}
+
+.tilt-left {
+    transform: rotate(-3deg);
+}
+
+.tilt-right {
+    transform: rotate(3deg);
+}
+
+.frame:hover,
+.gallery-card:hover {
+    transform: translateY(-8px) rotate(0deg);
+}
+
+.floating-card {
+    position: absolute;
+    right: 0;
+    bottom: -8px;
+    display: grid;
+    gap: 6px;
+    max-width: 240px;
+    padding: 16px 18px;
+    border-radius: 24px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+}
+
+.floating-card span {
+    color: var(--text-soft);
+    line-height: 1.55;
+}
+
+.reasons,
+.gallery,
+.analysis {
+    margin-top: 22px;
+}
+
+.reasons,
+.gallery {
+    padding: 28px;
+    border-radius: 32px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: clamp(1.9rem, 4vw, 3.1rem);
+}
+
+.section-heading p {
+    margin: 10px 0 0;
+    max-width: 620px;
+}
+
+.reason-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 22px;
+}
+
+.reason-card,
+.gallery-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    border: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(255, 245, 247, 0.95), rgba(255, 255, 255, 0.92));
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.reason-card {
+    min-height: 220px;
+    padding: 22px;
+}
+
+.reason-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+}
+
+.emoji {
+    display: inline-grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 18px;
+    background: rgba(255, 179, 198, 0.22);
+    font-size: 1.6rem;
+}
+
+.reason-card h3 {
+    margin: 18px 0 8px;
+    font-size: 1.25rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 22px;
+}
+
+.gallery-card {
+    padding: 12px;
+}
+
+.gallery-card img {
+    aspect-ratio: 4 / 3;
+    border-radius: 22px;
+}
+
+.gallery-card figcaption {
+    padding: 14px 8px 10px;
+    font-weight: 700;
+}
+
+.analysis-card {
+    padding: 28px;
+    border-radius: 32px;
+}
+
+.meter-label {
+    display: block;
+    margin-top: 18px;
+    font-weight: 700;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin-top: 12px;
+    accent-color: var(--accent-strong);
+}
+
+.meter-output {
+    margin: 10px 0 0;
+    font-weight: 700;
+}
+
+@media (max-width: 920px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .reason-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .shell {
+        width: min(100% - 20px, 1120px);
+        padding-top: 20px;
+    }
+
+    .hero,
+    .reasons,
+    .gallery,
+    .analysis-card {
+        padding: 20px;
+        border-radius: 24px;
+    }
+
+    .reason-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .floating-card {
+        position: static;
+        margin-top: 14px;
+        max-width: none;
+    }
+}
